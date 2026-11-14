@@ -17,7 +17,7 @@
     <p>A short job exercises PostgreSQL, the queue and Cable. Repeating a request key produces one effect.</p>
     <form id="job-form">
       <div data-app-field><label for="token">Testbed token</label><input id="token" type="password" autocomplete="off" required minlength="32"><small>Held in this tab only. Never included in a URL.</small></div>
-      <div data-app-field><label for="request-key">Request key</label><input id="request-key" required maxlength="100" pattern="[a-zA-Z0-9_-]+"></div>
+      <div data-app-field><label for="request-key">Request key</label><input id="request-key" required maxlength="100" pattern="[a-zA-Z0-9_\-]+"></div>
       <button type="submit" data-app-button="primary">Queue job</button>
       <p id="job-result" role="status"></p>
     </form>

@@ -19,8 +19,11 @@ Use 1 vCPU / 1.75 GB per replica for the Platform comparison. Configure
 cable. The release hook is `bin/rails db:prepare`. Do not run migrations in
 each Service's startup command. Keep automated deploys off during benchmarks.
 
-Every HTTP process runs the same app. Explicit paths exercise distinct public
-Services; `GET /private` on web exercises the API's private endpoint.
+Every HTTP process runs the same app. Add a normal Environment domain, without
+a Service override, for the dashboard and benchmark entry point. Generated
+Service URLs force all paths to that Service: the generated web URL cannot
+exercise the separate API and Cable Services. On the Environment domain,
+explicit paths exercise distinct public Services; `GET /private` on web exercises the API's private endpoint.
 
 ## Configuration
 
