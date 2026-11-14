@@ -16,8 +16,13 @@ It contains no Platform business logic or customer data.
 
 Use 1 vCPU / 1.75 GB per replica for the Platform comparison. Configure
 `/ready` as an HTTP readiness check with traffic protection on web, api and
-cable. The release hook is `bin/rails db:prepare`. Do not run migrations in
-each Service's startup command. Keep automated deploys off during benchmarks.
+cable. Use `bin/rails db:prepare` as the release hook when preparing fresh
+fixture databases or applying schema changes. For a retained fixture whose
+schema is already prepared, disable its Release Phase in Blossom during warm
+routing benchmarks. This also skips the temporary release endpoint's network
+preparation and cleanup. Re-enable it before deploying schema changes; keep
+the Procfile entry for fresh deployments. Do not run migrations in each
+Service's startup command. Keep automated deploys off during benchmarks.
 
 Every HTTP process runs the same app. Add a normal Environment domain, without
 a Service override, for the dashboard and benchmark entry point. Generated
