@@ -1,0 +1,3 @@
+#!/bin/sh
+export SERVICE_NAME=worker
+exec bundle exec bin/jobs --skip-recurring

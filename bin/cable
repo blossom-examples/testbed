@@ -1,0 +1,4 @@
+#!/bin/sh
+export SERVICE_NAME=cable
+export PORT=3120
+exec bundle exec puma -C config/puma.rb

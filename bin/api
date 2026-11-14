@@ -1,0 +1,4 @@
+#!/bin/sh
+export SERVICE_NAME=api
+export PORT=3220
+exec bundle exec puma -C config/puma.rb

@@ -1,0 +1,11 @@
+default: &default
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_URL", "redis://localhost:6379/0") %>
+  channel_prefix: testbed
+
+development:
+  <<: *default
+test:
+  adapter: test
+production:
+  <<: *default

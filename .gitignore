@@ -1,0 +1,11 @@
+/.bundle
+/.env*
+/config/master.key
+/config/credentials.yml.enc
+/log/*
+!/log/.keep
+/tmp/*
+!/tmp/.keep
+/vendor/bundle
+/.playwright-cli
+/public/assets

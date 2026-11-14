@@ -1,0 +1,4 @@
+#!/bin/sh
+export SERVICE_NAME=web
+export PORT=3000
+exec bundle exec puma -C config/puma.rb

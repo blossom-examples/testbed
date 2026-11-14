@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("DATABASE_POOL", 10) %>
+
+<% %w[development test production].each do |name| %>
+<%= name %>:
+  primary:
+    <<: *default
+    url: <%= ENV.fetch("DATABASE_URL", "postgresql://localhost/testbed_#{name}") %>
+  queue:
+    <<: *default
+    url: <%= ENV.fetch("QUEUE_DATABASE_URL", "postgresql://localhost/testbed_#{name}_queue") %>
+    migrations_paths: db/queue_migrate
+<% end %>

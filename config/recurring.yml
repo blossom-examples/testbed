@@ -1,0 +1,6 @@
+development: &tasks
+  heartbeat:
+    class: HeartbeatJob
+    schedule: every minute
+production:
+  <<: *tasks

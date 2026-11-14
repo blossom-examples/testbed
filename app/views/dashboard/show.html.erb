@@ -1,0 +1,31 @@
+<header data-app-page-header>
+  <div><p class="eyebrow">Deployment fixture</p><h1>Blossom Testbed</h1><p>Real Rails. Synthetic work. Observable rollouts.</p></div>
+  <button type="button" id="theme" aria-label="Switch to light theme">Light theme</button>
+</header>
+<section aria-labelledby="release-title">
+  <header data-app-section-header><h2 id="release-title">Serving now</h2><span id="connection" role="status">Connecting…</span></header>
+  <dl class="facts">
+    <div><dt>Release</dt><dd id="release">—</dd></div>
+    <div><dt>Service</dt><dd id="service">—</dd></div>
+    <div><dt>Replica</dt><dd id="replica">—</dd></div>
+    <div><dt>Completed jobs</dt><dd id="completed">—</dd></div>
+  </dl>
+</section>
+<div class="columns">
+  <section aria-labelledby="work-title">
+    <h2 id="work-title">Queue a job</h2>
+    <p>A short job exercises PostgreSQL, the queue and Cable. Repeating a request key produces one effect.</p>
+    <form id="job-form">
+      <div data-app-field><label for="token">Testbed token</label><input id="token" type="password" autocomplete="off" required minlength="32"><small>Held in this tab only. Never included in a URL.</small></div>
+      <div data-app-field><label for="request-key">Request key</label><input id="request-key" required maxlength="100" pattern="[a-zA-Z0-9_-]+"></div>
+      <button type="submit" data-app-button="primary">Queue job</button>
+      <p id="job-result" role="status"></p>
+    </form>
+  </section>
+  <section aria-labelledby="events-title">
+    <h2 id="events-title">Live events</h2>
+    <p>Job completions stream through ActionCable. The list keeps the latest 20 events.</p>
+    <ol id="events" aria-live="polite"><li>Waiting for a Cable connection…</li></ol>
+  </section>
+</div>
+<footer>Synthetic data only · <a href="/qa">JSON status</a> · <a href="/ready">Readiness</a> · <a href="https://github.com/blossom-examples/testbed">Source</a></footer>

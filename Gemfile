@@ -1,0 +1,11 @@
+source "https://rubygems.org"
+ruby ">= 3.3"
+gem "rails", "8.1.2"
+gem "pg", "~> 1.6"
+gem "puma", "7.2.0"
+gem "propshaft"
+gem "redis", "5.4.1"
+gem "solid_queue", "1.3.1"
+gem "bootsnap", "1.21.1", require: false
+gem "json", "2.18.0"
+gem "rack", "3.2.4"

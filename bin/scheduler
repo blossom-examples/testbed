@@ -1,0 +1,3 @@
+#!/bin/sh
+export SERVICE_NAME=scheduler
+exec bundle exec bin/jobs --config-file config/scheduler.yml
