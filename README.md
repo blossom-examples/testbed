@@ -86,6 +86,7 @@ separate private API process. Use isolated databases for tests:
 | `GET /qa`, `GET /api/status` | Identity, total jobs, completed jobs and effects |
 | `GET /private` | Makes a bounded private API request from web |
 | `GET /slow?seconds=5` | Bounded 0–30 second response for drain checks |
+| `GET /api/jobs/:request_key` | Authenticated job completion and effect evidence |
 | `POST /api/jobs` | Authenticated synthetic work, at most one second per job |
 | `WS /cable` | ActionCable `EventsChannel`: connection and completion events |
 

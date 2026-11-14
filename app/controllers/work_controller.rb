@@ -1,6 +1,13 @@
 class WorkController < ActionController::API
   before_action :authorize_token
 
+  def show
+    item = WorkItem.find_by(request_key: params[:request_key])
+    return head :not_found unless item
+
+    render json: item.slice(:id, :request_key, :effect_count, :completed_at, :processed_by)
+  end
+
   def create
     key = params[:request_key].to_s
     duration = Integer(params.fetch(:duration_ms, 50))

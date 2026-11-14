@@ -32,6 +32,11 @@ class WorkTest < ActionDispatch::IntegrationTest
     assert_equal 1, response.parsed_body["jobs"]
     assert_equal 1, response.parsed_body["completed"]
     assert_equal 1, response.parsed_body["effects"]
+    get "/api/jobs/same_request", headers: headers
+    assert_response :success
+    assert_equal 1, response.parsed_body["effect_count"]
+    get "/api/jobs/same_request"
+    assert_response :unauthorized
     post "/api/jobs", params: {request_key: "same_request", duration_ms: 1}, headers: headers, as: :json
     assert_response :conflict
   end
